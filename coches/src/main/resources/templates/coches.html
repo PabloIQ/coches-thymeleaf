@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<title th:text="#{titulo.coches}">Coches</title>
+</head>
+	<body>
+		<h1 th:text="#{titulo.coches}">Coches</title></h1>
+		<div th:if="${coches.isEmpty()}">
+			<p th:text="#{titulo.definicion}"></p>
+		</div>
+		<div th:unless="${coches.isEmpty()}">
+			<table border="1">
+				<thead>
+					<tr>
+						<th th:text="#{coche.marca}">MARCA</th>
+						<th th:text="#{coche.modelo}">MODELO></th>
+						<th th:text="#{coche.anyo}">AÑO></th>
+						<th th:text="#{coche.precio}">PRECIO></th>
+						<th th:text="#{coche.fuenteEnergia}">FUENTE DE ENERGIA></th>
+					</tr>
+				</thead>
+				<tr th:each="coche : ${coches}">
+					<td th:text="${coche.marca}"></td>
+					<td th:text="${coche.modelo}"></td>
+					<td th:text="${coche.ano}"></td>
+					<td th:text="${coche.precio}"></td>
+					<td th:text="${coche.fuenteEnergia}"></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
